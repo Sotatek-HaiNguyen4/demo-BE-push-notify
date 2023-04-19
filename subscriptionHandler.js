@@ -31,10 +31,10 @@ function sendPushNotification(req, res) {
       pushSubscription,
       JSON.stringify({
         title: 'New Product Available ',
-        text: 'HEY! Take a look at this brand new t-shirt!',
+        text: 'Hệ thống đã được update, mời bạn cập nhật phiên bản mới nhất.!',
         image: '/images/jason-leung-HM6TMmevbZQ-unsplash.jpg',
         tag: 'new-product',
-        url: '/new-product-jason-leung-HM6TMmevbZQ-unsplash.html'
+        url: '/'
       })
     )
     .catch((err) => {
