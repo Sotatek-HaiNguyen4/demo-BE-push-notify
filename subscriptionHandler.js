@@ -34,7 +34,8 @@ function sendPushNotification(req, res) {
         text: 'Hệ thống đã được update, mời bạn cập nhật phiên bản mới nhất.!',
         image: '/images/jason-leung-HM6TMmevbZQ-unsplash.jpg',
         tag: 'new-product',
-        url: '/notify'
+        url: '/notify',
+        unreadCount: 5
       })
     )
     .catch((err) => {
