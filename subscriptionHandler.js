@@ -23,6 +23,26 @@ function handlePushNotificationSubscription(req, res) {
   res.status(201).json({ id: susbscriptionId });
 }
 
+function padTo2Digits(num) {
+  return num.toString().padStart(2, '0');
+}
+
+function formatDate(date) {
+  return (
+    [
+      date.getFullYear(),
+      padTo2Digits(date.getMonth() + 1),
+      padTo2Digits(date.getDate()),
+    ].join('-') +
+    ' ' +
+    [
+      padTo2Digits(date.getHours()),
+      padTo2Digits(date.getMinutes()),
+      padTo2Digits(date.getSeconds()),
+    ].join(':')
+  );
+}
+
 function sendPushNotification(req, res) {
   const subscriptionId = req.params.id;
   const pushSubscription = subscriptions[subscriptionId];
@@ -30,7 +50,7 @@ function sendPushNotification(req, res) {
     .sendNotification(
       pushSubscription,
       JSON.stringify({
-        title: 'New Product Available ',
+        title: `Time send notify ${formatDate(new Date())}`,
         text: 'Hệ thống đã được update, mời bạn cập nhật phiên bản mới nhất.!',
         image: '/images/jason-leung-HM6TMmevbZQ-unsplash.jpg',
         tag: 'new-product',
