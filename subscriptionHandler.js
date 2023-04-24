@@ -55,7 +55,7 @@ function sendPushNotification(req, res) {
         image: '/images/jason-leung-HM6TMmevbZQ-unsplash.jpg',
         tag: 'new-product',
         url: '/notify',
-        unreadCount: 5
+        badge: 5
       })
     )
     .catch((err) => {
